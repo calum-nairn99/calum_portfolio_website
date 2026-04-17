@@ -941,7 +941,7 @@ export default function CalumPortfolioWebsite() {
                 </a>
 
                 <a
-                  href="/Calum-Nairn-CV.pdf"
+                  href="/Calum_Nairn_Resume.pdf"
                   download
                   className={`inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition ${themeClasses.panel}`}
                 >
