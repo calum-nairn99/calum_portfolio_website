@@ -684,13 +684,13 @@ export default function CalumPortfolioWebsite() {
   const educationItems = [
     {
       title: "M.Sc. Artificial Intelligence",
-      school: "University",
+      school: "University of Ulster",
       detail:
         "Focused on machine learning, data systems, and applied AI concepts.",
     },
     {
       title: "B.Sc. Computing & IT",
-      school: "University",
+      school: "Queen's University Belfast",
       detail:
         "Strong foundation in programming, databases, and system design.",
     },
@@ -919,8 +919,9 @@ export default function CalumPortfolioWebsite() {
               <p
                 className={`mt-6 max-w-2xl text-lg leading-8 md:text-xl ${themeClasses.muted}`}
               >
-                I’m a data engineer from Northern Ireland, now based in
-                Vancouver, with experience across enterprise data workflows,
+                I’m a Data Engineer from Northern Ireland, now based in
+                Vancouver, with experience at major banking corporations, including
+                Citi and Bank of Ireland. I've worked on enterprise data workflows,
                 cloud migration, AWS, PySpark, SQL, and large-scale data
                 platforms. I enjoy simplifying systems, improving performance,
                 and building solutions that have a clear business outcome.
