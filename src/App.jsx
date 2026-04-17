@@ -717,7 +717,7 @@ export default function CalumPortfolioWebsite() {
   const [activeSkillGroup, setActiveSkillGroup] = useState("All");
   const [skillQuery, setSkillQuery] = useState("");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [isLight, setIsLight] = useState(true);
+  const [isLight, setIsLight] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showTopButton, setShowTopButton] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
