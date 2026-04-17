@@ -1131,8 +1131,7 @@ export default function CalumPortfolioWebsite() {
                 </h3>
               </div>
               <p className={`max-w-2xl text-sm leading-7 ${themeClasses.soft}`}>
-                Filter by area, search by keyword, and keep the section feeling a
-                little more alive than a static list.
+                
               </p>
             </div>
 
