@@ -689,7 +689,7 @@ export default function CalumPortfolioWebsite() {
         "Focused on machine learning, data systems, and applied AI concepts.",
     },
     {
-      title: "B.Sc. Computing & AI",
+      title: "B.Sc. Computing & IT",
       school: "University",
       detail:
         "Strong foundation in programming, databases, and system design.",
