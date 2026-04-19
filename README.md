@@ -1,32 +1,13 @@
 # Calum Portfolio Website
-# Edit
+
+Hello, and welcome to my personal site!
+
+I built this site to highlight my experience, which makes it more visually appealing than the traditional resume. I've always loved web development since I was in university.
+
+If you're keen to know about the technical details of the site, I have it all included below.
+
+I hope you like the site, and if there's anything you think would improve the site, please be sure to let me know 😊
+
+## Tech Specs
 
 Ready-to-deploy Vite + React + Tailwind project.
-
-## Run locally
-
-```bash
-npm install
-npm run dev
-```
-
-## Build
-
-```bash
-npm run build
-```
-
-## Deploy to Vercel
-
-- Upload this folder or connect the repo to Vercel.
-- Framework preset: Vite
-- Build command: `npm run build`
-- Output directory: `dist`
-
-## CV download
-
-Place your CV file at:
-
-`public/Calum-Nairn-CV.pdf`
-
-A placeholder file is included so builds and downloads have a valid target.
