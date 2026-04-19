@@ -484,8 +484,8 @@ function ProjectModal({ project, onClose, isLight }) {
 function createProjects() {
   return [
     {
-      title: "Enterprise Data Ingestion Optimisation",
-      category: "Performance",
+      title: "Enterprise Data Ingestion Optimization",
+      category: "Data Acquisition",
       summary:
         "Redesigned a large-scale ingestion workflow by moving from full daily loads to incremental partition-based processing.",
       impact:
@@ -509,11 +509,11 @@ function createProjects() {
     },
     {
       title: "HDFS to AWS Migration",
-      category: "Migration",
+      category: "Cloud Migration",
       summary:
         "Supported migration from legacy on-prem data storage to AWS, improving scalability, accessibility, and long-term maintainability.",
       impact:
-        "Helped modernise data infrastructure and support cloud-based analytics workflows.",
+        "Helped modernize data infrastructure and support cloud-based analytics workflows.",
       stack: ["HDFS", "AWS", "Data Migration", "ETL", "Data Lake"],
       metric: "Cloud-ready architecture",
       problem:
@@ -532,7 +532,7 @@ function createProjects() {
       ],
     },
     {
-      title: "Mobi Bikes Forecasting",
+      title: "Restricted Securities",
       category: "Analytics",
       summary:
         "Built a predictive workflow combining historical and real-time bike-share data to forecast station-level availability one hour ahead.",
