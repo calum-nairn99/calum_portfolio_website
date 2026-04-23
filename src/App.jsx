@@ -1204,9 +1204,6 @@ export default function CalumPortfolioWebsite() {
               </h3>
             </div>
             <p className={`max-w-2xl text-sm leading-7 ${themeClasses.soft}`}>
-              Each card opens a detailed case study modal, which makes the site
-              feel more like a polished product and less like a static portfolio
-              page.
             </p>
           </div>
 
