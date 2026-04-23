@@ -205,6 +205,26 @@ function SunIcon({ className }) {
   );
 }
 
+function CNLogoMark({ className = "h-10 w-10" }) {
+  return (
+    <div
+      className={[
+        "relative overflow-hidden rounded-2xl border border-blue-400/30 bg-[#0a1020] shadow-[0_0_24px_rgba(96,165,250,0.18)]",
+        className,
+      ].join(" ")}
+      aria-hidden="true"
+    >
+      <div className="absolute inset-0 rounded-2xl border border-blue-300/70 shadow-[inset_0_0_18px_rgba(125,211,252,0.2),0_0_14px_rgba(96,165,250,0.25)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(96,165,250,0.18),transparent_45%),linear-gradient(180deg,#111827,#0a1020)]" />
+      <div className="relative z-10 flex h-full w-full items-center justify-center text-[0.95rem] font-extrabold tracking-[-0.08em] text-white">
+        <span className="bg-gradient-to-r from-sky-200 via-white to-blue-300 bg-clip-text text-transparent drop-shadow-[0_0_6px_rgba(147,197,253,0.35)]">
+          CN
+        </span>
+      </div>
+    </div>
+  );
+}
+
 function ScrollToTopButton({ visible, isLight }) {
   return (
     <AnimatePresence>
@@ -484,8 +504,8 @@ function ProjectModal({ project, onClose, isLight }) {
 function createProjects() {
   return [
     {
-      title: "Enterprise Data Ingestion Optimization",
-      category: "Data Acquisition",
+      title: "Enterprise Data Ingestion Optimisation",
+      category: "Performance",
       summary:
         "Redesigned a large-scale ingestion workflow by moving from full daily loads to incremental partition-based processing.",
       impact:
@@ -509,11 +529,11 @@ function createProjects() {
     },
     {
       title: "HDFS to AWS Migration",
-      category: "Cloud Migration",
+      category: "Migration",
       summary:
         "Supported migration from legacy on-prem data storage to AWS, improving scalability, accessibility, and long-term maintainability.",
       impact:
-        "Helped modernize data infrastructure and support cloud-based analytics workflows.",
+        "Helped modernise data infrastructure and support cloud-based analytics workflows.",
       stack: ["HDFS", "AWS", "Data Migration", "ETL", "Data Lake"],
       metric: "Cloud-ready architecture",
       problem:
@@ -532,7 +552,7 @@ function createProjects() {
       ],
     },
     {
-      title: "Restricted Securities",
+      title: "Mobi Bikes Forecasting",
       category: "Analytics",
       summary:
         "Built a predictive workflow combining historical and real-time bike-share data to forecast station-level availability one hour ahead.",
@@ -684,13 +704,13 @@ export default function CalumPortfolioWebsite() {
   const educationItems = [
     {
       title: "M.Sc. Artificial Intelligence",
-      school: "University of Ulster",
+      school: "University",
       detail:
         "Focused on machine learning, data systems, and applied AI concepts.",
     },
     {
-      title: "B.Sc. Computing & IT",
-      school: "Queen's University Belfast",
+      title: "B.Sc. Computing & AI",
+      school: "University",
       detail:
         "Strong foundation in programming, databases, and system design.",
     },
@@ -721,6 +741,21 @@ export default function CalumPortfolioWebsite() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [showTopButton, setShowTopButton] = useState(false);
   const [activeSection, setActiveSection] = useState("about");
+
+  useEffect(() => {
+    let link = document.getElementById("dynamic-favicon");
+
+    if (!link) {
+      link = document.createElement("link");
+      link.id = "dynamic-favicon";
+      link.rel = "icon";
+      link.type = "image/png";
+      document.head.appendChild(link);
+    }
+
+    const faviconPath = isLight ? "/favicon-light.png" : "/favicon-dark.png";
+    link.setAttribute("href", `${faviconPath}?v=${isLight ? "light" : "dark"}`);
+  }, [isLight]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -770,6 +805,10 @@ export default function CalumPortfolioWebsite() {
         muted: "text-slate-600",
         soft: "text-slate-500",
         pill: "border-slate-200 bg-slate-100 text-slate-700",
+        footer: "border-slate-200 bg-white text-slate-600",
+        footerLine: "border-slate-200",
+        footerText: "text-slate-500",
+        footerHeading: "text-slate-900",
       }
     : {
         page: "bg-[#05070f] text-slate-100",
@@ -778,6 +817,10 @@ export default function CalumPortfolioWebsite() {
         muted: "text-slate-300",
         soft: "text-slate-400",
         pill: "border-white/10 bg-white/5 text-slate-200",
+        footer: "border-white/10 bg-[#0a1020] text-white/70",
+        footerLine: "border-white/10",
+        footerText: "text-white/50",
+        footerHeading: "text-white",
       };
 
   const navLinkClass = (itemId) => {
@@ -813,13 +856,16 @@ export default function CalumPortfolioWebsite() {
         className={`sticky top-0 z-50 border-b backdrop-blur-xl ${themeClasses.header}`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-          <div>
-            <p className="text-[11px] uppercase tracking-[0.35em] text-blue-400/80">
-              Portfolio
-            </p>
-            <h1 className="text-lg font-semibold tracking-wide">
-              Calum Nairn
-            </h1>
+          <div className="flex items-center gap-3">
+            <CNLogoMark className="h-11 w-11" />
+            <div>
+              <p className="text-[11px] uppercase tracking-[0.35em] text-blue-400/80">
+                Portfolio
+              </p>
+              <h1 className="text-lg font-semibold tracking-wide">
+                Calum Nairn
+              </h1>
+            </div>
           </div>
 
           <nav className="hidden items-center gap-2 md:flex">
@@ -912,19 +958,13 @@ export default function CalumPortfolioWebsite() {
               </div>
 
               <h2 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight md:text-6xl xl:text-7xl">
-                Building data systems that are fast, scalable, and genuinely
-                useful.
+                Building data systems that are fast, scalable, and genuinely useful.
               </h2>
 
               <p
                 className={`mt-6 max-w-2xl text-lg leading-8 md:text-xl ${themeClasses.muted}`}
               >
-                I’m a Data Engineer from Northern Ireland, now based in
-                Vancouver, with experience at major banking corporations, including
-                Citi and Bank of Ireland. I've worked on enterprise data workflows,
-                cloud migration, AWS, PySpark, SQL, and large-scale data
-                platforms. I enjoy simplifying systems, improving performance,
-                and building solutions that have a clear business outcome.
+                I’m a data engineer from Northern Ireland, now based in Vancouver, with experience across enterprise data workflows, cloud migration, AWS, PySpark, SQL, and large-scale data platforms. I enjoy simplifying systems, improving performance, and building solutions that have a clear business outcome.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -942,7 +982,7 @@ export default function CalumPortfolioWebsite() {
                 </a>
 
                 <a
-                  href="/Calum_Nairn_Resume.pdf"
+                  href="/Calum-Nairn-CV.pdf"
                   download
                   className={`inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition ${themeClasses.panel}`}
                 >
@@ -961,16 +1001,12 @@ export default function CalumPortfolioWebsite() {
                     className={`rounded-3xl border p-5 backdrop-blur-sm ${themeClasses.panel}`}
                   >
                     <p className="text-2xl font-semibold">{stat.value}</p>
-                    <p className={`mt-1 text-sm ${themeClasses.soft}`}>
-                      {stat.label}
-                    </p>
+                    <p className={`mt-1 text-sm ${themeClasses.soft}`}>{stat.label}</p>
                   </motion.div>
                 ))}
               </div>
 
-              <div
-                className={`mt-12 flex items-center gap-2 text-sm ${themeClasses.soft}`}
-              >
+              <div className={`mt-12 flex items-center gap-2 text-sm ${themeClasses.soft}`}>
                 <ChevronDownIcon className="h-4 w-4 animate-bounce" />
                 Scroll to explore selected work and experience
               </div>
@@ -987,28 +1023,19 @@ export default function CalumPortfolioWebsite() {
             className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]"
           >
             <div>
-              <p
-                className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}
-              >
+              <p className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}>
                 About
               </p>
               <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
                 A practical, impact-driven approach to data engineering.
               </h3>
             </div>
-            <div
-              className={`rounded-[2rem] border p-8 backdrop-blur-sm ${themeClasses.panel}`}
-            >
+            <div className={`rounded-[2rem] border p-8 backdrop-blur-sm ${themeClasses.panel}`}>
               <p className={`text-base leading-8 ${themeClasses.muted}`}>
-                My background is in building and improving data workflows in
-                enterprise environments, particularly where scale, reliability,
-                and efficiency matter. I’m most interested in work that goes
-                beyond simply moving data from one place to another.
+                My background is in building and improving data workflows in enterprise environments, particularly where scale, reliability, and efficiency matter. I’m most interested in work that goes beyond simply moving data from one place to another.
               </p>
               <p className={`mt-5 text-base leading-8 ${themeClasses.muted}`}>
-                I like understanding the system, spotting where it can be
-                improved, and making changes that have a clear outcome for the
-                business or the teams using the data.
+                I like understanding the system, spotting where it can be improved, and making changes that have a clear outcome for the business or the teams using the data.
               </p>
             </div>
           </motion.div>
@@ -1023,9 +1050,7 @@ export default function CalumPortfolioWebsite() {
           >
             <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
               <div>
-                <p
-                  className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}
-                >
+                <p className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}>
                   Focus
                 </p>
                 <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
@@ -1033,8 +1058,7 @@ export default function CalumPortfolioWebsite() {
                 </h3>
               </div>
               <p className={`max-w-2xl text-sm leading-7 ${themeClasses.soft}`}>
-                The strongest work usually comes from combining technical depth
-                with good judgement. These are the areas I naturally lean into.
+                The strongest work usually comes from combining technical depth with good judgement. These are the areas I naturally lean into.
               </p>
             </div>
 
@@ -1050,15 +1074,11 @@ export default function CalumPortfolioWebsite() {
                     transition={{ duration: 0.55, delay: index * 0.1 }}
                     className={`group rounded-[2rem] border p-7 backdrop-blur-sm transition hover:-translate-y-1 hover:border-blue-300/30 ${themeClasses.panel}`}
                   >
-                    <div
-                      className={`inline-flex rounded-2xl border p-3 ${themeClasses.panel}`}
-                    >
+                    <div className={`inline-flex rounded-2xl border p-3 ${themeClasses.panel}`}>
                       <Icon className="h-5 w-5 text-blue-500" />
                     </div>
                     <h4 className="mt-5 text-xl font-semibold">{item.title}</h4>
-                    <p
-                      className={`mt-3 text-sm leading-7 ${themeClasses.soft}`}
-                    >
+                    <p className={`mt-3 text-sm leading-7 ${themeClasses.soft}`}>
                       {item.description}
                     </p>
                   </motion.div>
@@ -1071,9 +1091,7 @@ export default function CalumPortfolioWebsite() {
         <section className="mx-auto max-w-7xl px-6 py-12">
           <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p
-                className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}
-              >
+              <p className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}>
                 Education
               </p>
               <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
@@ -1081,8 +1099,7 @@ export default function CalumPortfolioWebsite() {
               </h3>
             </div>
             <p className={`max-w-xl text-sm leading-7 ${themeClasses.soft}`}>
-              Academic foundation focused on AI, data systems, and software
-              engineering principles.
+              Academic foundation focused on AI, data systems, and software engineering principles.
             </p>
           </div>
 
@@ -1094,13 +1111,8 @@ export default function CalumPortfolioWebsite() {
             className={`grid gap-6 rounded-[2rem] border p-8 md:grid-cols-2 ${themeClasses.panel}`}
           >
             {educationItems.map((item) => (
-              <div
-                key={item.title}
-                className={`rounded-3xl border p-5 ${themeClasses.panel}`}
-              >
-                <p
-                  className={`text-xs uppercase tracking-[0.24em] ${themeClasses.soft}`}
-                >
+              <div key={item.title} className={`rounded-3xl border p-5 ${themeClasses.panel}`}>
+                <p className={`text-xs uppercase tracking-[0.24em] ${themeClasses.soft}`}>
                   {item.school}
                 </p>
                 <h4 className="mt-2 text-lg font-semibold">{item.title}</h4>
@@ -1122,9 +1134,7 @@ export default function CalumPortfolioWebsite() {
           >
             <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
               <div>
-                <p
-                  className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}
-                >
+                <p className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}>
                   Skills
                 </p>
                 <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
@@ -1132,7 +1142,7 @@ export default function CalumPortfolioWebsite() {
                 </h3>
               </div>
               <p className={`max-w-2xl text-sm leading-7 ${themeClasses.soft}`}>
-                
+                Filter by area, search by keyword, and keep the section feeling a little more alive than a static list.
               </p>
             </div>
 
@@ -1159,9 +1169,7 @@ export default function CalumPortfolioWebsite() {
                 })}
               </div>
 
-              <label
-                className={`flex items-center gap-3 rounded-full border px-4 py-2 text-sm ${themeClasses.panel}`}
-              >
+              <label className={`flex items-center gap-3 rounded-full border px-4 py-2 text-sm ${themeClasses.panel}`}>
                 <SearchIcon className={`h-4 w-4 ${themeClasses.soft}`} />
                 <input
                   value={skillQuery}
@@ -1183,9 +1191,7 @@ export default function CalumPortfolioWebsite() {
                 </motion.span>
               ))}
               {filteredSkills.length === 0 ? (
-                <p className={`text-sm ${themeClasses.soft}`}>
-                  No matching skills found.
-                </p>
+                <p className={`text-sm ${themeClasses.soft}`}>No matching skills found.</p>
               ) : null}
             </div>
           </motion.div>
@@ -1194,9 +1200,7 @@ export default function CalumPortfolioWebsite() {
         <section id="projects" className="mx-auto max-w-7xl px-6 py-20">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p
-                className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}
-              >
+              <p className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}>
                 Projects
               </p>
               <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
@@ -1204,6 +1208,7 @@ export default function CalumPortfolioWebsite() {
               </h3>
             </div>
             <p className={`max-w-2xl text-sm leading-7 ${themeClasses.soft}`}>
+              Each card opens a detailed case study modal, which makes the site feel more like a polished product and less like a static portfolio page.
             </p>
           </div>
 
@@ -1233,15 +1238,10 @@ export default function CalumPortfolioWebsite() {
                   <p className={`mt-4 text-sm leading-7 ${themeClasses.muted}`}>
                     {project.summary}
                   </p>
-                  <p className="mt-4 text-sm font-medium leading-7">
-                    {project.impact}
-                  </p>
+                  <p className="mt-4 text-sm font-medium leading-7">{project.impact}</p>
                   <div className="mt-6 flex flex-wrap gap-2">
                     {project.stack.map((item) => (
-                      <span
-                        key={item}
-                        className={`rounded-full px-3 py-1 text-xs ${themeClasses.pill}`}
-                      >
+                      <span key={item} className={`rounded-full px-3 py-1 text-xs ${themeClasses.pill}`}>
                         {item}
                       </span>
                     ))}
@@ -1269,9 +1269,7 @@ export default function CalumPortfolioWebsite() {
             className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr]"
           >
             <div>
-              <p
-                className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}
-              >
+              <p className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}>
                 Process
               </p>
               <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
@@ -1288,14 +1286,10 @@ export default function CalumPortfolioWebsite() {
                   transition={{ duration: 0.55, delay: index * 0.08 }}
                   className={`grid gap-4 rounded-[2rem] border p-6 backdrop-blur-sm md:grid-cols-[84px_1fr] ${themeClasses.panel}`}
                 >
-                  <div className="text-3xl font-semibold text-blue-500">
-                    {item.year}
-                  </div>
+                  <div className="text-3xl font-semibold text-blue-500">{item.year}</div>
                   <div>
                     <h4 className="text-xl font-semibold">{item.title}</h4>
-                    <p className={`mt-2 text-sm leading-7 ${themeClasses.soft}`}>
-                      {item.text}
-                    </p>
+                    <p className={`mt-2 text-sm leading-7 ${themeClasses.soft}`}>{item.text}</p>
                   </div>
                 </motion.div>
               ))}
@@ -1313,18 +1307,14 @@ export default function CalumPortfolioWebsite() {
           >
             <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-blue-400/10 blur-3xl" />
             <div className="relative z-10">
-              <p
-                className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}
-              >
+              <p className={`text-sm uppercase tracking-[0.24em] ${themeClasses.soft}`}>
                 Contact
               </p>
               <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
                 Open to data engineering opportunities.
               </h3>
               <p className={`mt-4 max-w-2xl text-base leading-8 ${themeClasses.muted}`}>
-                I’m currently based in Vancouver and interested in roles where I
-                can contribute to scalable data systems, cloud-based platforms,
-                and performance-focused engineering work.
+                I’m currently based in Vancouver and interested in roles where I can contribute to scalable data systems, cloud-based platforms, and performance-focused engineering work.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -1359,84 +1349,84 @@ export default function CalumPortfolioWebsite() {
         </section>
       </main>
 
-      <footer className={`border-t ${themeClasses.footerLine} ${themeClasses.footer}`}>
-  <div className="mx-auto max-w-7xl px-6 py-12">
-    <div className={`grid gap-10 rounded-[2rem] border p-8 backdrop-blur-xl md:grid-cols-[1.15fr_0.85fr_0.9fr] ${themeClasses.panel}`}>
-      <div>
-        <div className="flex items-center gap-3">
-          <CNLogoMark className="h-11 w-11" />
-          <div>
-            <p className={`text-base font-semibold ${themeClasses.footerHeading}`}>
-              Calum Nairn
-            </p>
-            <p className={`text-sm ${themeClasses.footerText}`}>
-              Data Engineer · Vancouver
-            </p>
+            <footer className={`border-t ${themeClasses.footerLine} ${themeClasses.footer}`}>
+        <div className="mx-auto max-w-7xl px-6 py-12">
+          <div className={`grid gap-10 rounded-[2rem] border p-8 backdrop-blur-xl md:grid-cols-[1.15fr_0.85fr_0.9fr] ${themeClasses.panel}`}>
+            <div>
+              <div className="flex items-center gap-3">
+                <CNLogoMark className="h-11 w-11" />
+                <div>
+                  <p className={`text-base font-semibold ${themeClasses.footerHeading}`}>
+                    Calum Nairn
+                  </p>
+                  <p className={`text-sm ${themeClasses.footerText}`}>
+                    Data Engineer · Vancouver
+                  </p>
+                </div>
+              </div>
+
+              <p className={`mt-5 max-w-md text-sm leading-7 ${themeClasses.footerText}`}>
+                Building scalable data systems, improving performance, and turning complex workflows into practical business value.
+              </p>
+            </div>
+
+            <div>
+              <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${themeClasses.footerText}`}>
+                Navigation
+              </p>
+              <div className="mt-4 flex flex-col gap-3 text-sm">
+                <a href="#projects" className="transition hover:text-blue-400">
+                  Projects
+                </a>
+                <a href="#about" className="transition hover:text-blue-400">
+                  About
+                </a>
+                <a href="#process" className="transition hover:text-blue-400">
+                  Process
+                </a>
+                <a href="#contact" className="transition hover:text-blue-400">
+                  Contact
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${themeClasses.footerText}`}>
+                Connect
+              </p>
+              <div className="mt-4 flex flex-col gap-3 text-sm">
+                <a
+                  href="mailto:calumnairn99@gmail.com"
+                  className="transition hover:text-blue-400"
+                >
+                  calumnairn99@gmail.com
+                </a>
+                <a
+                  href="https://github.com/calum-nairn99"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-blue-400"
+                >
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/calum-nairn/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition hover:text-blue-400"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className={`mt-6 flex flex-col gap-3 border-t ${themeClasses.footerLine} pt-6 text-xs ${themeClasses.footerText} md:flex-row md:items-center md:justify-between`}>
+            <p>© {new Date().getFullYear()} Calum Nairn. Built with React & Vite.</p>
+            <p>Designed for clarity, performance, and clean engineering presentation.</p>
           </div>
         </div>
-
-        <p className={`mt-5 max-w-md text-sm leading-7 ${themeClasses.footerText}`}>
-          Building scalable data systems, improving performance, and turning complex workflows into practical business value.
-        </p>
-      </div>
-
-      <div>
-        <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${themeClasses.footerText}`}>
-          Navigation
-        </p>
-        <div className="mt-4 flex flex-col gap-3 text-sm">
-          <a href="#projects" className="transition hover:text-blue-400">
-            Projects
-          </a>
-          <a href="#about" className="transition hover:text-blue-400">
-            About
-          </a>
-          <a href="#process" className="transition hover:text-blue-400">
-            Process
-          </a>
-          <a href="#contact" className="transition hover:text-blue-400">
-            Contact
-          </a>
-        </div>
-      </div>
-
-      <div>
-        <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${themeClasses.footerText}`}>
-          Connect
-        </p>
-        <div className="mt-4 flex flex-col gap-3 text-sm">
-          <a
-            href="mailto:calumnairn99@gmail.com"
-            className="transition hover:text-blue-400"
-          >
-            calumnairn99@gmail.com
-          </a>
-          <a
-            href="https://github.com/calum-nairn99"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition hover:text-blue-400"
-          >
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/calum-nairn/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition hover:text-blue-400"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div className={`mt-6 flex flex-col gap-3 border-t ${themeClasses.footerLine} pt-6 text-xs ${themeClasses.footerText} md:flex-row md:items-center md:justify-between`}>
-      <p>© {new Date().getFullYear()} Calum Nairn. Built with React & Vite.</p>
-      <p>Designed for clarity, performance, and clean engineering presentation.</p>
-    </div>
-  </div>
-</footer>
+      </footer>
 
       <ProjectModal
         project={selectedProject}
