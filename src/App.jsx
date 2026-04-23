@@ -1359,6 +1359,85 @@ export default function CalumPortfolioWebsite() {
         </section>
       </main>
 
+      <footer className={`border-t ${themeClasses.footerLine} ${themeClasses.footer}`}>
+  <div className="mx-auto max-w-7xl px-6 py-12">
+    <div className={`grid gap-10 rounded-[2rem] border p-8 backdrop-blur-xl md:grid-cols-[1.15fr_0.85fr_0.9fr] ${themeClasses.panel}`}>
+      <div>
+        <div className="flex items-center gap-3">
+          <CNLogoMark className="h-11 w-11" />
+          <div>
+            <p className={`text-base font-semibold ${themeClasses.footerHeading}`}>
+              Calum Nairn
+            </p>
+            <p className={`text-sm ${themeClasses.footerText}`}>
+              Data Engineer · Vancouver
+            </p>
+          </div>
+        </div>
+
+        <p className={`mt-5 max-w-md text-sm leading-7 ${themeClasses.footerText}`}>
+          Building scalable data systems, improving performance, and turning complex workflows into practical business value.
+        </p>
+      </div>
+
+      <div>
+        <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${themeClasses.footerText}`}>
+          Navigation
+        </p>
+        <div className="mt-4 flex flex-col gap-3 text-sm">
+          <a href="#projects" className="transition hover:text-blue-400">
+            Projects
+          </a>
+          <a href="#about" className="transition hover:text-blue-400">
+            About
+          </a>
+          <a href="#process" className="transition hover:text-blue-400">
+            Process
+          </a>
+          <a href="#contact" className="transition hover:text-blue-400">
+            Contact
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p className={`text-xs font-semibold uppercase tracking-[0.24em] ${themeClasses.footerText}`}>
+          Connect
+        </p>
+        <div className="mt-4 flex flex-col gap-3 text-sm">
+          <a
+            href="mailto:calumnairn99@gmail.com"
+            className="transition hover:text-blue-400"
+          >
+            calumnairn99@gmail.com
+          </a>
+          <a
+            href="https://github.com/calum-nairn99"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition hover:text-blue-400"
+          >
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/calum-nairn/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition hover:text-blue-400"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div className={`mt-6 flex flex-col gap-3 border-t ${themeClasses.footerLine} pt-6 text-xs ${themeClasses.footerText} md:flex-row md:items-center md:justify-between`}>
+      <p>© {new Date().getFullYear()} Calum Nairn. Built with React & Vite.</p>
+      <p>Designed for clarity, performance, and clean engineering presentation.</p>
+    </div>
+  </div>
+</footer>
+
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
