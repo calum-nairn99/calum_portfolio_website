@@ -1208,7 +1208,6 @@ export default function CalumPortfolioWebsite() {
               </h3>
             </div>
             <p className={`max-w-2xl text-sm leading-7 ${themeClasses.soft}`}>
-              Each card opens a detailed case study modal, which makes the site feel more like a polished product and less like a static portfolio page.
             </p>
           </div>
 
@@ -1422,8 +1421,7 @@ export default function CalumPortfolioWebsite() {
           </div>
 
           <div className={`mt-6 flex flex-col gap-3 border-t ${themeClasses.footerLine} pt-6 text-xs ${themeClasses.footerText} md:flex-row md:items-center md:justify-between`}>
-            <p>© {new Date().getFullYear()} Calum Nairn. Built with React & Vite.</p>
-            <p>Designed for clarity, performance, and clean engineering presentation.</p>
+            <p>© {new Date().getFullYear()} Calum Nairn - Built with React & Vite.</p>
           </div>
         </div>
       </footer>
