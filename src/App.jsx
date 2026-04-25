@@ -504,13 +504,13 @@ function ProjectModal({ project, onClose, isLight }) {
 function createProjects() {
   return [
     {
-      title: "Enterprise Data Ingestion Optimisation",
+      title: "Enterprise Data Acquisition Optimisation",
       category: "Performance",
       summary:
-        "Redesigned a large-scale ingestion workflow by moving from full daily loads to incremental partition-based processing.",
+        "Redesigned a large-scale ingestion workflow by moving from full daily loads to incremental partition-based delta load processing.",
       impact:
         "Reduced runtime from ~24 hours to ~1 hour and improved downstream data availability.",
-      stack: ["PySpark", "AWS S3", "EC2", "SQL", "Partitioning"],
+      stack: ["PySpark", "Teradata", "SQL", "Apache Oozie", "Partitioning"],
       metric: "95% faster runtime",
       problem:
         "A large ingestion workflow was originally designed around daily full loads, even though only a small portion of the overall data changed each day. That meant long runtimes, unnecessary compute, and slower access for the teams relying on refreshed data.",
@@ -590,17 +590,18 @@ function getSkillGroups() {
       "Python",
       "SQL",
       "PySpark",
-      "Spark SQL",
+      "HDFS",
       "AWS S3",
-      "EC2",
+      "AWS EC2",
       "Hive",
       "Teradata",
       "Iceberg",
+      "Apache Oozie",
       "ETL Pipelines",
       "Data Lakes",
       "Performance Optimisation",
       "Incremental Loading",
-      "Git",
+      "Git/Bitbucket",
     ],
     Languages: ["Python", "SQL"],
     Data: [
@@ -613,7 +614,7 @@ function getSkillGroups() {
       "Teradata",
       "Iceberg",
     ],
-    Cloud: ["AWS S3", "EC2", "Git"],
+    Cloud: ["AWS S3", "AWS EC2"],
   };
 }
 
@@ -704,13 +705,13 @@ export default function CalumPortfolioWebsite() {
   const educationItems = [
     {
       title: "M.Sc. Artificial Intelligence",
-      school: "University",
+      school: "University of Ulster",
       detail:
         "Focused on machine learning, data systems, and applied AI concepts.",
     },
     {
       title: "B.Sc. Computing & IT",
-      school: "University",
+      school: "Queen's University Belfast",
       detail:
         "Strong foundation in programming, databases, and system design.",
     },
