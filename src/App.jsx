@@ -696,9 +696,9 @@ export default function CalumPortfolioWebsite() {
   ];
 
   const stats = [
-    { label: "Years in data", value: "4+" },
+    { label: "Years in data", value: "4" },
     { label: "Runtime improvement", value: "24h → 1h" },
-    { label: "Core focus", value: "AWS · PySpark" },
+    { label: "Core focus", value: "PySpark · SQL · AWS" },
   ];
 
   const educationItems = [
@@ -709,7 +709,7 @@ export default function CalumPortfolioWebsite() {
         "Focused on machine learning, data systems, and applied AI concepts.",
     },
     {
-      title: "B.Sc. Computing & AI",
+      title: "B.Sc. Computing & IT",
       school: "University",
       detail:
         "Strong foundation in programming, databases, and system design.",
