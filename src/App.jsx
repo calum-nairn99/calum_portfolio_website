@@ -955,7 +955,7 @@ export default function CalumPortfolioWebsite() {
                 className={`mb-6 inline-flex items-center gap-2 rounded-full border px-4 py-2 text-xs font-medium uppercase tracking-[0.28em] text-blue-500 ${themeClasses.panel}`}
               >
                 <SparklesIcon className="h-3.5 w-3.5" />
-                Data Engineer · Vancouver
+                Data Engineer · Belfast
               </div>
 
               <h2 className="max-w-4xl text-5xl font-semibold leading-[1.05] tracking-tight md:text-6xl xl:text-7xl">
@@ -965,7 +965,7 @@ export default function CalumPortfolioWebsite() {
               <p
                 className={`mt-6 max-w-2xl text-lg leading-8 md:text-xl ${themeClasses.muted}`}
               >
-                I’m a data engineer from Northern Ireland, now based in Vancouver, with experience across enterprise data workflows, cloud migration, AWS, PySpark, SQL, and large-scale data platforms. I enjoy simplifying systems, improving performance, and building solutions that have a clear business outcome.
+                I’m a Data Engineer from Belfast with 4 years’ experience in banking. I've worked with enterprise data workflows, cloud migration, AWS, PySpark, SQL, and large-scale data platforms. I enjoy simplifying systems, improving performance, and building solutions that have a clear business outcome.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -983,7 +983,7 @@ export default function CalumPortfolioWebsite() {
                 </a>
 
                 <a
-                  href="/Calum-Nairn-CV.pdf"
+                  href="/Calum_Nairn.pdf"
                   download
                   className={`inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium transition ${themeClasses.panel}`}
                 >
@@ -1314,7 +1314,7 @@ export default function CalumPortfolioWebsite() {
                 Open to data engineering opportunities.
               </h3>
               <p className={`mt-4 max-w-2xl text-base leading-8 ${themeClasses.muted}`}>
-                I’m currently based in Vancouver and interested in roles where I can contribute to scalable data systems, cloud-based platforms, and performance-focused engineering work.
+                I’m based in Belfast from September 2026 or earlier for the right role. I'm interested in roles where I can contribute to scalable data systems, cloud-based platforms, and performance-focused engineering work. I've a full right to work in the UK — no sponsorship required.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-4">
@@ -1360,7 +1360,7 @@ export default function CalumPortfolioWebsite() {
                     Calum Nairn
                   </p>
                   <p className={`text-sm ${themeClasses.footerText}`}>
-                    Data Engineer · Vancouver
+                    Data Engineer · Belfast
                   </p>
                 </div>
               </div>
